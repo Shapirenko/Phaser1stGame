@@ -16,6 +16,9 @@ var config = {
     }
 };
 
+var score = 0;
+var scoreText;
+
 var game = new Phaser.Game(config);
 
 function preload ()
@@ -83,6 +86,8 @@ function create ()
 
     this.physics.add.collider(stars, platforms);
     this.physics.add.overlap(player, stars, collectStar, null, this);
+
+    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 }
 
 function update ()
