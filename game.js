@@ -113,3 +113,7 @@ function update ()
         player.setVelocityY(-330);
     }
 }
+function collectStar (player, star)
+{
+    star.disableBody(true, true);
+}
