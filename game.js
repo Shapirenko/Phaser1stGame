@@ -16,11 +16,13 @@ var config = {
     }
 };
 
+//додання зсчетчика але не за газ а для зірочок
 var score = 0;
 var scoreText;
 
 var game = new Phaser.Game(config);
 
+//завантаження картинок 
 function preload() {
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/platform.png');
@@ -32,6 +34,7 @@ function preload() {
     );
 }
 
+//додання всяких цікавинок на сцену
 function create() {
     this.add.image(400, 300, 'sky');
 
@@ -94,6 +97,7 @@ function create() {
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 
+//керування з допомогою стрілочок
 function update() {
     cursors = this.input.keyboard.createCursorKeys();
 
@@ -118,6 +122,7 @@ function update() {
     }
 }
 
+//збір зірочок на зсу
 function collectStar(player, star) {
     star.disableBody(true, true);
 
@@ -141,6 +146,7 @@ function collectStar(player, star) {
     }
 }
 
+//бомба бум-бум
 function hitBomb(player, bomb) {
     this.physics.pause();
 
