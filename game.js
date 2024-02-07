@@ -68,10 +68,24 @@ function create ()
     });
 
     this.physics.add.collider(player, platforms);
+
+    stars = this.physics.add.group({
+        key: 'star',
+        repeat: 11,
+        setXY: { x: 12, y: 0, stepX: 70 }
+    });
+    
+    stars.children.iterate(function (child) {
+    
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    
+    });
 }
 
 function update ()
 {
+    cursors = this.input.keyboard.createCursorKeys();
+
     if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
